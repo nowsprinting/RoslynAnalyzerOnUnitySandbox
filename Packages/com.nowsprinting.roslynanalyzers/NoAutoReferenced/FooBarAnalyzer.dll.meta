@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 44df2de0c1a124c98a24e47a822d302e
+guid: cfb5cd04e88d84cf49a5be50c714f0c4
 labels:
 - RoslynAnalyzer
 PluginImporter:
@@ -9,9 +9,9 @@ PluginImporter:
   executionOrder: {}
   defineConstraints: []
   isPreloaded: 0
-  isOverridable: 0
-  isExplicitlyReferenced: 1
-  validateReferences: 0
+  isOverridable: 1
+  isExplicitlyReferenced: 0
+  validateReferences: 1
   platformData:
   - first:
       : Any
