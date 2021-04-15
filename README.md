@@ -42,6 +42,11 @@
 
 ## 検証結果
 
+### Unity 2020.3.0f1
+
+- FooBarBazAnalyzer.dllのみ、全ソースに対して警告
+- Packages下のDLLsは無効
+
 ### Rider Editor package v2.0.7 (Unity 2020 verified)
 
 - Assembly-CSharp.csproj : 4つとも`<Analyzer>`として記述
