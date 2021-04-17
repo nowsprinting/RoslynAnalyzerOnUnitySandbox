@@ -48,7 +48,7 @@
 
 ### アナライザのスコープ/ .csproj生成
 
-#### Unity 2020.3.0f1
+#### Unity 2020.2.0f1
 
 - Assets下のFooBarBazAnalyzer.dllのみ、全ソースに対して有効
 - Packages下のDLLsはすべて無効
@@ -90,7 +90,7 @@
 
 ### IDEでの診断実行
 
-#### Unity 2020.3.0f1
+#### Unity 2020.2.0f1
 
 - Reimportタイミングでのみ診断が実行される
 - .rulesetファイル有効
@@ -103,7 +103,7 @@
 
 ### CLIでの診断実行
 
-#### Unity 2020.3.0f1 Batch mode build
+#### Unity 2020.2.0f1 Batch mode build
 
 - スコープについては上記Unity Editor GUIと同様
 - 診断結果はビルドログに出力されるため、CIで結果を利用するにはパースが必要
