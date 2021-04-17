@@ -15,12 +15,14 @@
 
 - asmdefの `Auto Referenced` がoff
 - FooBarAnalyzer.dll
+    - デフォルトの重大度は `Warning` だが、.sln.DotSettingsで `Suggestion` に設定
 
 
 ### Assets 下のアナライザ
 
 - asmdefなし。Assembly-CSharpに属する
 - FooBarBazAnalyzer.dll
+    - デフォルトの重大度は `Warning` だが、Default.rulesetで `Error` に設定
 
 
 ### Assets/Scripts
@@ -46,8 +48,9 @@
 
 ### Unity 2020.3.0f1
 
-- Assets下のFooBarBazAnalyzer.dllのみ、全ソースに対して警告
+- Assets下のFooBarBazAnalyzer.dllのみ、全ソースに対して有効
 - Packages下のDLLsはすべて無効
+- Rulesetファイル有効
 
 #### Packages下のDLLをAssets下に移動した場合 (branch: reference_in_assets)
 
@@ -62,12 +65,14 @@
 - Assembly-CSharp.csproj : 4つとも`<Analyzer>`として記述
 - NotReferenced.csproj : 4つとも`<Analyzer>`として記述
 - Referenced.csproj : 4つとも`<Analyzer>`として記述
+- .rulesetファイルはインポートされない。.DotSettingsファイルは有効
 
 ### Rider Editor package v3.0.5
 
 - Assembly-CSharp.csproj : 4つとも`<Analyzer>`として記述
 - NotReferenced.csproj : 4つとも`<Analyzer>`として記述
 - Referenced.csproj : 4つとも`<Analyzer>`として記述
+- .rulesetファイルはインポートされない。.DotSettingsファイルは有効
 
 ### Visual Studio Code Editor package v1.2.3 (Unity 2020 verified)
 
@@ -81,4 +86,4 @@
 - NotReferenced.csproj : 同上
 - Referenced.csproj : 同上
 
-Packages下のDLLをAssets下に移動するケースは試していない。FooBarBazAnalyzer.dllすら適用されていないため無駄と判断。
+※Packages下のDLLをAssets下に移動するケースは試していない。FooBarBazAnalyzer.dllすら適用されていないため無駄と判断。
