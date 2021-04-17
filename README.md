@@ -3,7 +3,7 @@
 
 ## 構成
 
-### Packages/Roslyn Analyzers
+### Packages/Roslyn Analyzers 下のアナライザ
 
 #### AutoReferenced
 
@@ -16,10 +16,12 @@
 - asmdefの `Auto Referenced` がoff
 - FooBarAnalyzer.dll
 
-### Assets
+
+### Assets 下のアナライザ
 
 - asmdefなし。Assembly-CSharpに属する
 - FooBarBazAnalyzer.dll
+
 
 ### Assets/Scripts
 
