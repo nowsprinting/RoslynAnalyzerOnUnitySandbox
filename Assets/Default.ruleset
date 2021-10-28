@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RuleSet Name="New Rule Set" Description=" " ToolsVersion="10.0">
-  <Rules AnalyzerId="FooBarBazAnalyzer" RuleNamespace="FooBarBazAnalyzer">
-    <Rule Id="FooBarBazAnalyzer" Action="Error" />
+
+  <!--  Assets/Analyzersに配置しているアナライザ-->
+  <Rules AnalyzerId="AnalyzerWithoutAsmdef" RuleNamespace="AnalyzerWithoutAsmdef">
+    <Rule Id="AnalyzerWithoutAsmdef" Action="Warning"/>
   </Rules>
+  <Rules AnalyzerId="AnalyzerWithAsmdef" RuleNamespace="AnalyzerWithAsmdef">
+    <Rule Id="AnalyzerWithAsmdef" Action="Warning"/>
+  </Rules>
+
+  <!--  Embedded packageに配置したアナライザ-->
+  <Rules AnalyzerId="AnalyzerInEmbeddedPackage" RuleNamespace="AnalyzerInEmbeddedPackage">
+    <Rule Id="AnalyzerInEmbeddedPackage" Action="Warning"/>
+  </Rules>
+  <Rules AnalyzerId="AnalyzerInEmbeddedPackageWithAsmdef" RuleNamespace="AnalyzerInEmbeddedPackageWithAsmdef">
+    <Rule Id="AnalyzerInEmbeddedPackageWithAsmdef" Action="Error"/><!-- Unity 2020.2.0f1で有効にならない-->
+  </Rules>
+
+  <!--  Local packageに配置したアナライザ-->
+  <Rules AnalyzerId="AnalyzerInLocalPackage" RuleNamespace="AnalyzerInLocalPackage">
+    <Rule Id="AnalyzerInLocalPackage" Action="Warning"/>
+  </Rules>
+  <Rules AnalyzerId="AnalyzerInLocalPackageWithAsmdef" RuleNamespace="AnalyzerInLocalPackageWithAsmdef">
+    <Rule Id="AnalyzerInLocalPackageWithAsmdef" Action="Error"/><!-- Unity 2020.2.0f1で有効にならない-->
+  </Rules>
+
+  <!--  Git URLでインポートしているアナライザ-->
+  <Rules AnalyzerId="AnalyzerInPackage" RuleNamespace="AnalyzerInPackage">
+    <Rule Id="AnalyzerInPackage" Action="Warning"/>
+  </Rules>
+  <Rules AnalyzerId="AnalyzerInPackageWithAsmdef" RuleNamespace="AnalyzerInPackageWithAsmdef">
+    <Rule Id="AnalyzerInPackageWithAsmdef" Action="Error"/><!-- Unity 2020.2.0f1で有効にならない-->
+  </Rules>
+
 </RuleSet>

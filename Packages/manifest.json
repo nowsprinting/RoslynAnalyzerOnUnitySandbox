@@ -38,6 +38,17 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
-  }
+    "com.unity.modules.xr": "1.0.0",
+    "com.nowsprinting.analyzer-in-localpackage": "file:../LocalPackages/com.nowsprinting.analyzer-in-localpackage",
+    "com.nowsprinting.analyzer-in-package": "git@github.com:nowsprinting/analyzer-in-package.git"
+  },
+  "scopedRegistries": [
+    {
+      "name": "package.openupm.com",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "com.openupm"
+      ]
+    }
+  ]
 }

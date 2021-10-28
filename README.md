@@ -1,114 +1,88 @@
 # RoslynAnalyzerOnUnitySandbox
 
 
-## 構成
-
-### Packages/Roslyn Analyzers 下のアナライザ
-
-#### AutoReferenced
-
-- asmdefの `Auto Referenced` がon
-- HogeFugaAnalyzer.dll
-- HogeFugaAnalyzer.CodeFixes.dll
-
-#### NoAutoReferenced
-
-- asmdefの `Auto Referenced` がoff
-- FooBarAnalyzer.dll
-    - デフォルトの重大度は `Warning` だが、.sln.DotSettingsで `Suggestion` に設定
+## Project Structures
 
 
-### Assets 下のアナライザ
+### Roslyn Analyzers in project
 
-- asmdefなし。Assembly-CSharpに属する
-- FooBarBazAnalyzer.dll
-    - デフォルトの重大度は `Warning` だが、Default.rulesetで `Error` に設定
+Both warn when type name contains lowercase letters.
 
 
-### Assets/Scripts
+#### AnalyzerWithoutAsmdef
 
-#### NotBelongAssembly
+This analyzer in Assets folder.
 
-- asmdefなし。Assembly-CSharpに属する
-- `Auto Referenced` がonであるHogeFugaAnalyzer, HogeFugaAnalyzer.CodeFixesが入るはず
-- `Auto Referenced` がoffであるFooBarAnalyzerは入らないはず
+#### AnalyzerWithAsmdef
 
-#### NotReferenced
+This analyzer in Assets folder, and under asmdef.
 
-- asmdefあり、Assembly Definition References指定なし
-- どのアナライザも入らないはず
+#### AnalyzerInEmbeddedPackage
 
-#### Referenced
+This analyzer in embedded package.
 
-- asmdefあり、Assembly Definition Referencesに `NoAutoReferenced` を指定
-- FooBarAnalyzerだけ入るはず
+#### AnalyzerInEmbeddedPackageWithAsmdef
+
+This analyzer in embedded package, and under asmdef.
+
+#### AnalyzerInLocalPackage
+
+This analyzer in local package.
+
+#### AnalyzerInLocalPackageWithAsmdef
+
+This analyzer in local package, and under asmdef.
+
+#### AnalyzerInPackage
+
+This [analyzer in UPM package](https://github.com/nowsprinting/analyzer-in-package) from Git URL.
+
+#### AnalyzerInPackageWithAsmdef
+
+This [analyzer in UPM package](https://github.com/nowsprinting/analyzer-in-package) from Git URL, and under asmdef.
+
+
+### Analyzer target scripts
+
+#### NoAsmdef
+
+asmdefのないスクリプト（Assembly-CSharpに含まれる）。
+asmdef下にないアナライザ4つ（AnalyzerWithoutAsmdef, AnalyzerInEmbeddedPackage, AnalyzerInLocalPackage, AnalyzerInPackage）の診断対象になるはず。
+
+#### NoReferences
+
+asmdefはあるが、Assembly Definition Referencesに指定のないスクリプト。
+asmdef下にないアナライザ4つ（AnalyzerWithoutAsmdef, AnalyzerInEmbeddedPackage, AnalyzerInLocalPackage, AnalyzerInPackage）の診断対象になるはず。
+
+#### SpecifiedReferences
+
+asmdefはあり、Assembly Definition ReferencesにWithAsmdefアナライザ4つを指定したスクリプト。
+8アナライザ全ての診断対象になるはず。
+
 
 
 ## 検証結果
 
-### アナライザのスコープ/ .csproj生成
+### Unity 2020.2.0f1
 
-#### Unity 2020.2.0f1
+* NoAsmdef, NoReferences については想定通りの振る舞い
+* SpecifiedReferences では、Assets下のWithAsmdefアナライザは有効だったが、Packages下のWithAsmdefアナライザ3つは無効
 
-- Assets下のFooBarBazAnalyzer.dllのみ、全ソースに対して有効
-- Packages下のDLLsはすべて無効
+つまり
+* Packages (Embedded package, Local package, Git URL, and maybe UPM registry) 下かつasmdef下のアナライザは無効
 
-##### Packages下のDLLをAssets下に移動した場合 (branch: reference_in_assets)
+### Rider Editor package v3.0.6
 
-- Assembly-CSharp.csproj : FooBarBazAnalyzer（asmdefなし）と HogeFugaAnalyzer（asmdefの `Auto Referenced` がon）が有効
-- NotReferenced.csproj : FooBarBazAnalyzer（asmdefなし）のみ有効
-- Referenced.csproj : FooBarBazAnalyzer（asmdefなし）と FooBarAnalyzer（asmdefの `Auto Referenced` がoffだが `References` に追加しているため）が有効
+* すべてのパターンで（つまりasmdefに関係なく）、Assets下およびEmbeddedPackageのアナライザが全て有効
 
-→ Unityマニュアル [Roslyn analyzers and ruleset files](https://docs.unity3d.com/2020.2/Documentation/Manual/roslyn-analyzers.html) の "Analyzer scope" に書かれている通りの振る舞い
+つまり
+* asmdefの依存関係を見ていない
+* Embedded package以外のPackages (Local package, Git URL, and maybe UPM registry) 下に置いたアナライザは無効（asmdefに関係なく）
 
-#### Rider Editor package v2.0.7 (Unity 2020 verified)
+### Visual Studio Code Editor package v1.2.3 (Unity 2020 verified)
 
-- Assembly-CSharp.csproj : 4つとも`<Analyzer>`として記述
-- NotReferenced.csproj : 4つとも`<Analyzer>`として記述
-- Referenced.csproj : 4つとも`<Analyzer>`として記述
+TBD
 
-#### Rider Editor package v3.0.5
+### Visual Studio Editor package v2.0.7 (Unity 2020 verified)
 
-- Assembly-CSharp.csproj : 4つとも`<Analyzer>`として記述
-- NotReferenced.csproj : 4つとも`<Analyzer>`として記述
-- Referenced.csproj : 4つとも`<Analyzer>`として記述
-
-#### Visual Studio Code Editor package v1.2.3 (Unity 2020 verified)
-
-- Assembly-CSharp.csproj : 4つとも`<Analyzer>`として記述
-- NotReferenced.csproj : 4つとも`<Analyzer>`として記述
-- Referenced.csproj : 4つとも`<Analyzer>`として記述
-
-#### Visual Studio Editor package v2.0.7 (Unity 2020 verified)
-
-- Assembly-CSharp.csproj :すべて無効。ただしMicrosoft.Unity.Analyzers.dllが`<Analyzer>`として記述
-- NotReferenced.csproj : 同上
-- Referenced.csproj : 同上
-
-※Packages下のDLLをAssets下に移動するケースは試していない。FooBarBazAnalyzer.dllすら適用されていないため無駄と判断。
-
-
-### IDEでの診断実行
-
-#### Unity 2020.2.0f1
-
-- Reimportタイミングでのみ診断が実行される
-- .rulesetファイル有効
-- .rulesetファイルの変更を反映するにもReimportが必要
-
-#### JetBrains Rider 2021.1
-
-- .rulesetファイルはインポートされない。.DotSettingsファイルは有効
-
-
-### CLIでの診断実行
-
-#### Unity 2020.2.0f1 Batch mode build
-
-- スコープについては上記Unity Editor GUIと同様
-- 診断結果はビルドログに出力されるため、CIで結果を利用するにはパースが必要
-- .rulesetファイルは効かない
-
-#### JetBrains ReSharper CLT 2021.1 (inspectcode.sh/ exe)
-
-- 未対応。see: https://youtrack.jetbrains.com/issue/RSRP-480257
+TBD
