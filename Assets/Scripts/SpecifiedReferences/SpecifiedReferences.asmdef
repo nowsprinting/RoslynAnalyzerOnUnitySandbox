@@ -1,0 +1,19 @@
+{
+    "name": "SpecifiedReferences",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2c7fea618663048968556516576bee1d",
+        "GUID:27bc39bd257f04f8e820d2cf16d89c3c",
+        "GUID:b5c145ab0463d4af48b6d700018cdf2c",
+        "GUID:4d115baf5c5a64f28a9bf819f676cbfa"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
