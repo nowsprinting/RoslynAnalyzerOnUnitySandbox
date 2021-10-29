@@ -12,8 +12,13 @@ jobs:
         targetPlatform:
           - StandaloneLinux64
         unityVersion: # Available versions see: https://game.ci/docs/docker/versions
-          - 2020.3.8f1
-          - 2021.1.5f1
+          - 2020.3.7f1
+          - 2020.3.6f1
+          - 2020.3.5f1
+          - 2021.1.4f1
+          - 2021.1.3f1
+          - 2021.1.2f1
+          - 2021.1.1f1
 
     steps:
       # Checkout
