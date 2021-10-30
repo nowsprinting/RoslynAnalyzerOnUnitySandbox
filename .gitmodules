@@ -1,0 +1,3 @@
+[submodule "Packages/com.nowsprinting.analyzer-in-package"]
+	path = Packages/com.nowsprinting.analyzer-in-package
+	url = git@github.com:nowsprinting/analyzer-in-package.git
