@@ -415,11 +415,3 @@ dotnet_diagnostic.CA1822.severity = suggestion
 [Makefile]
 indent_style = tab
 
-[{Packages,LocalPackages,PackageCache}/**.cs]
-dotnet_diagnostic.AnalyzerWithoutAsmdef.severity = none
-dotnet_diagnostic.AnalyzerWithAsmdef.severity = none
-dotnet_diagnostic.AnalyzerInEmbeddedPackage.severity = none
-dotnet_diagnostic.AnalyzerInEmbeddedPackageWithAsmdef.severity = none
-dotnet_diagnostic.AnalyzerInLocalPackage.severity = none
-dotnet_diagnostic.AnalyzerInLocalPackageWithAsmdef.severity = none
-dotnet_diagnostic.AnalyzerInPackage.severity = none
