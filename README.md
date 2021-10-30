@@ -1,88 +1,94 @@
 # RoslynAnalyzerOnUnitySandbox
 
 
-## Project Structures
 
+## Project Structures
 
 ### Roslyn Analyzers in project
 
-Both warn when type name contains lowercase letters.
+Analyzers warn when type name contains lowercase letters.
 
-
-#### AnalyzerWithoutAsmdef
-
-This analyzer in Assets folder.
-
-#### AnalyzerWithAsmdef
-
-This analyzer in Assets folder, and under asmdef.
-
-#### AnalyzerInEmbeddedPackage
-
-This analyzer in embedded package.
-
-#### AnalyzerInEmbeddedPackageWithAsmdef
-
-This analyzer in embedded package, and under asmdef.
-
-#### AnalyzerInLocalPackage
-
-This analyzer in local package.
-
-#### AnalyzerInLocalPackageWithAsmdef
-
-This analyzer in local package, and under asmdef.
-
-#### AnalyzerInPackage
-
-This [analyzer in UPM package](https://github.com/nowsprinting/analyzer-in-package) from Git URL.
-
-#### AnalyzerInPackageWithAsmdef
-
-This [analyzer in UPM package](https://github.com/nowsprinting/analyzer-in-package) from Git URL, and under asmdef.
+* **AnalyzerWithoutAsmdef** : Analyzer in Assets folder.
+* **AnalyzerWithAsmdef** : Analyzer in Assets folder, and under asmdef.
+* **AnalyzerInEmbeddedPackage** : Analyzer in embedded package.
+* **AnalyzerInEmbeddedPackageWithAsmdef** : Analyzer in embedded package, and under asmdef.
+* **AnalyzerInLocalPackage** : Analyzer in local package.
+* **AnalyzerInLocalPackageWithAsmdef** : Analyzer in local package, and under asmdef.
+* **AnalyzerInPackage** : [This analyzer](https://github.com/nowsprinting/analyzer-in-package) from Git URL.
+* **AnalyzerInPackageWithAsmdef** : [This analyzer](https://github.com/nowsprinting/analyzer-in-package) from Git URL, and under asmdef.
 
 
 ### Analyzer target scripts
 
 #### NoAsmdef
 
-asmdefのないスクリプト（Assembly-CSharpに含まれる）。
-asmdef下にないアナライザ4つ（AnalyzerWithoutAsmdef, AnalyzerInEmbeddedPackage, AnalyzerInLocalPackage, AnalyzerInPackage）の診断対象になるはず。
+No assembly definition file (asmdef). This script is included Assembly-CSharp.
+The following analyzers are expected. Not under asmdef.
+
+* AnalyzerWithoutAsmdef
+* AnalyzerInEmbeddedPackage
+* AnalyzerInLocalPackage
+* AnalyzerInPackage
 
 #### NoReferences
 
-asmdefはあるが、Assembly Definition Referencesに指定のないスクリプト。
-asmdef下にないアナライザ4つ（AnalyzerWithoutAsmdef, AnalyzerInEmbeddedPackage, AnalyzerInLocalPackage, AnalyzerInPackage）の診断対象になるはず。
+Not specified "Assembly Definition References" in asmdef.
+The following analyzers are expected. Not under asmdef.
+
+* AnalyzerWithoutAsmdef
+* AnalyzerInEmbeddedPackage
+* AnalyzerInLocalPackage
+* AnalyzerInPackage
 
 #### SpecifiedReferences
 
-asmdefはあり、Assembly Definition ReferencesにWithAsmdefアナライザ4つを指定したスクリプト。
-8アナライザ全ての診断対象になるはず。
+Specified 4 analyzers under the asmdef by "Assembly Definition References" in asmdef.
+The following analyzers are expected. All analyzers in this project.
+
+* AnalyzerWithoutAsmdef
+* AnalyzerWithAsmdef
+* AnalyzerInEmbeddedPackage
+* AnalyzerInEmbeddedPackageWithAsmdef
+* AnalyzerInLocalPackage
+* AnalyzerInLocalPackageWithAsmdef
+* AnalyzerInPackage
+* AnalyzerInPackageWithAsmdef
 
 
 
-## 検証結果
+## Results of a verification
 
-### Unity 2020.2.0f1
+### Unity
 
-* NoAsmdef, NoReferences については想定通りの振る舞い
-* SpecifiedReferences では、Assets下のWithAsmdefアナライザは有効だったが、Packages下のWithAsmdefアナライザ3つは無効
+#### Unity 2020.2.0f1
 
-つまり
-* Packages (Embedded package, Local package, Git URL, and maybe UPM registry) 下かつasmdef下のアナライザは無効
+* **NoAsmdef** and **NoReferences** are correct behaviour
+* In **SpecifiedReferences**, does not work analyzers under Packages and asmdef
 
-### Rider Editor package v3.0.6
+#### Unity 2020.3.4f1
 
-* すべてのパターンで（つまりasmdefに関係なく）、Assets下およびEmbeddedPackageのアナライザが全て有効
+* Fix **SpecifiedReferences** problem (but no mentioned in release notes and issue tracker)
 
-つまり
-* asmdefの依存関係を見ていない
-* Embedded package以外のPackages (Local package, Git URL, and maybe UPM registry) 下に置いたアナライザは無効（asmdefに関係なく）
 
-### Visual Studio Code Editor package v1.2.3 (Unity 2020 verified)
+### JetBrains Rider
 
-TBD
+#### Rider Editor package v3.0.7
 
-### Visual Studio Editor package v2.0.7 (Unity 2020 verified)
+For all patterns,
+
+* Analyzers under Assets folder and embedded packages are working (asmdef has no effect)
+* Analyzers under local packages and from Git URL (and maybe from UPM registry) are not work
+
+
+### Visual Studio Code
+
+#### Visual Studio Code Editor package v1.2.3 (Unity 2020 verified)
+
+Same as Rider Editor package v3.0.6
+
+
+### Visual Studio
+
+#### Visual Studio Editor package v2.0.7 (Unity 2020 verified)
 
 TBD
