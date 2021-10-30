@@ -12,13 +12,6 @@
       "source": "local",
       "dependencies": {}
     },
-    "com.nowsprinting.analyzer-in-package": {
-      "version": "git@github.com:nowsprinting/analyzer-in-package.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "09a26235557696bb0de8918c4dcf4da2e01dbfef"
-    },
     "com.unity.collab-proxy": {
       "version": "1.3.9",
       "depth": 0,
