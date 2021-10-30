@@ -13,9 +13,9 @@
       "dependencies": {}
     },
     "com.nowsprinting.analyzer-in-package": {
-      "version": "file:com.nowsprinting.analyzer-in-package",
+      "version": "file:../LocalPackages/com.nowsprinting.analyzer-in-package",
       "depth": 0,
-      "source": "embedded",
+      "source": "local",
       "dependencies": {}
     },
     "com.unity.collab-proxy": {
