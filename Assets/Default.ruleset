@@ -14,7 +14,7 @@
     <Rule Id="AnalyzerInEmbeddedPackage" Action="Warning"/>
   </Rules>
   <Rules AnalyzerId="AnalyzerInEmbeddedPackageWithAsmdef" RuleNamespace="AnalyzerInEmbeddedPackageWithAsmdef">
-    <Rule Id="AnalyzerInEmbeddedPackageWithAsmdef" Action="Error"/><!-- Unity 2020.2.0f1で有効にならない-->
+    <Rule Id="AnalyzerInEmbeddedPackageWithAsmdef" Action="Warning"/><!-- Unity 2020.2.0f1で有効にならない-->
   </Rules>
 
   <!--  Local packageに配置したアナライザ-->
@@ -22,7 +22,7 @@
     <Rule Id="AnalyzerInLocalPackage" Action="Warning"/>
   </Rules>
   <Rules AnalyzerId="AnalyzerInLocalPackageWithAsmdef" RuleNamespace="AnalyzerInLocalPackageWithAsmdef">
-    <Rule Id="AnalyzerInLocalPackageWithAsmdef" Action="Error"/><!-- Unity 2020.2.0f1で有効にならない-->
+    <Rule Id="AnalyzerInLocalPackageWithAsmdef" Action="Warning"/><!-- Unity 2020.2.0f1で有効にならない-->
   </Rules>
 
   <!--  Git URLでインポートしているアナライザ-->
@@ -30,7 +30,7 @@
     <Rule Id="AnalyzerInPackage" Action="Warning"/>
   </Rules>
   <Rules AnalyzerId="AnalyzerInPackageWithAsmdef" RuleNamespace="AnalyzerInPackageWithAsmdef">
-    <Rule Id="AnalyzerInPackageWithAsmdef" Action="Error"/><!-- Unity 2020.2.0f1で有効にならない-->
+    <Rule Id="AnalyzerInPackageWithAsmdef" Action="Warning"/><!-- Unity 2020.2.0f1で有効にならない-->
   </Rules>
 
 </RuleSet>
