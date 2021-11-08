@@ -1,11 +1,22 @@
 ﻿/// <summary>
-/// Assembly Definition References指定なし
-///
-/// Unity 2020.2.0f1 + Rider Editor 3.0.6での振る舞い
-/// - Unity: AnalyzerWithoutAsmdef, AnalyzerInPackage, AnalyzerInLocalPackage, AnalyzerInEmbeddedPackage が有効
-/// - Rider: AnalyzerWithAsmdef, AnalyzerWithoutAsmdef, AnalyzerInEmbeddedPackage, AnalyzerInEmbeddedPackageWithAsmdef が有効
-/// - VS:
-/// - VSCode:
+/// Not specified "Assembly Definition References" in asmdef.
+/// The following analyzers are expected. Not under asmdef.
+/// - AnalyzerWithoutAsmdef
+/// - AnalyzerInEmbeddedPackage
+/// - AnalyzerInLocalPackage
+/// - AnalyzerInPackage
+/// 
+/// Unity 2020.2.0f1 (correct)
+/// - AnalyzerWithoutAsmdef
+/// - AnalyzerInEmbeddedPackage
+/// - AnalyzerInLocalPackage
+/// - AnalyzerInPackage
+/// 
+/// Rider Editor package v3.0.7 (only work analyzers under Assets folder and embedded package. asmdef dependencies are not considered)
+/// - AnalyzerWithoutAsmdef
+/// - AnalyzerWithAsmdef
+/// - AnalyzerInEmbeddedPackage
+/// - AnalyzerInEmbeddedPackageWithAsmdef
 /// </summary>
 public class NoReferences
 {

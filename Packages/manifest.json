@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.nowsprinting.analyzer-in-localpackage": "file:../LocalPackages/com.nowsprinting.analyzer-in-localpackage",
-    "com.nowsprinting.analyzer-in-package": "git@github.com:nowsprinting/analyzer-in-package.git",
+    "com.nowsprinting.analyzer-in-package": "https://github.com/nowsprinting/analyzer-in-package.git",
     "com.unity.collab-proxy": "1.13.5",
     "com.unity.ide.rider": "3.0.7",
     "com.unity.ide.visualstudio": "2.0.11",
@@ -40,14 +40,16 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "nunit.analyzers.unity": "3.2.0"
   },
   "scopedRegistries": [
     {
       "name": "package.openupm.com",
       "url": "https://package.openupm.com",
       "scopes": [
-        "com.openupm"
+        "com.openupm",
+        "nunit.analyzers.unity"
       ]
     }
   ]

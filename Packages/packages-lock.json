@@ -13,7 +13,7 @@
       "dependencies": {}
     },
     "com.nowsprinting.analyzer-in-package": {
-      "version": "git@github.com:nowsprinting/analyzer-in-package.git",
+      "version": "https://github.com/nowsprinting/analyzer-in-package.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
@@ -117,6 +117,13 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
+    },
+    "nunit.analyzers.unity": {
+      "version": "3.2.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://package.openupm.com"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
