@@ -16,6 +16,7 @@ Analyzers warn when type name contains lowercase letters.
 * **AnalyzerInLocalPackageWithAsmdef** : Analyzer in local package, and under asmdef.
 * **AnalyzerInPackage** : [This analyzer](https://github.com/nowsprinting/analyzer-in-package) from Git URL.
 * **AnalyzerInPackageWithAsmdef** : [This analyzer](https://github.com/nowsprinting/analyzer-in-package) from Git URL, and under asmdef.
+* **NUnit.Analyzers** : [This analyzer](https://github.com/nowsprinting/nunit.analyzers.unity) from [OpenUPM](https://openupm.com)
 
 
 ### Analyzer target scripts
@@ -54,6 +55,17 @@ The following analyzers are expected. All analyzers in this project.
 * AnalyzerInPackage
 * AnalyzerInPackageWithAsmdef
 
+#### Test
+
+Only specified "NUnit.Analyzers" by "Assembly Definition References" in asmdef.
+The following analyzers are expected. NUnit.Analyzers and not under asmdef.
+
+* NUnit.Analyzers
+* AnalyzerWithoutAsmdef
+* AnalyzerInEmbeddedPackage
+* AnalyzerInLocalPackage
+* AnalyzerInPackage
+
 
 
 ## Results of a verification
@@ -64,10 +76,15 @@ The following analyzers are expected. All analyzers in this project.
 
 * **NoAsmdef** and **NoReferences** are correct behaviour
 * In **SpecifiedReferences**, does not work analyzers under Packages and asmdef
+* In **Test**, does not work NUnit.Analyzers (reason is unknown)
 
 #### Unity 2020.3.4f1
 
 * Fix **SpecifiedReferences** problem (but no mentioned in release notes and issue tracker)
+
+#### Unity 2021.2.0f1
+
+* Fix **Test** problem (reason is unknown)
 
 
 ### JetBrains Rider
