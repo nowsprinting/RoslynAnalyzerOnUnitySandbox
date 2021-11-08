@@ -13,7 +13,7 @@
       "dependencies": {}
     },
     "com.nowsprinting.analyzer-in-package": {
-      "version": "git@github.com:nowsprinting/analyzer-in-package.git",
+      "version": "https://github.com/nowsprinting/analyzer-in-package.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
