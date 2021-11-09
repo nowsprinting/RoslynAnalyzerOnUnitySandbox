@@ -76,7 +76,7 @@ The following analyzers are expected. NUnit.Analyzers and not under asmdef.
 
 * **NoAsmdef** and **NoReferences** are correct behaviour
 * In **SpecifiedReferences**, does not work analyzers under Packages and asmdef
-* In **Test**, does not work NUnit.Analyzers (reason is unknown)
+* In **Tests**, does not work NUnit.Analyzers (reason is unknown)
 
 #### Unity 2020.3.4f1
 
@@ -84,7 +84,7 @@ The following analyzers are expected. NUnit.Analyzers and not under asmdef.
 
 #### Unity 2021.2.0f1
 
-* Fixed **Test** problem (reason is unknown)
+* Fixed **Tests** problem (reason is unknown)
 
 
 ### JetBrains Rider
