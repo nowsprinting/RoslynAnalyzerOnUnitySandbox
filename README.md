@@ -55,7 +55,7 @@ The following analyzers are expected. All analyzers in this project.
 * AnalyzerInPackage
 * AnalyzerInPackageWithAsmdef
 
-#### Test
+#### Tests
 
 Only specified "NUnit.Analyzers" by "Assembly Definition References" in asmdef.
 The following analyzers are expected. NUnit.Analyzers and not under asmdef.
@@ -80,11 +80,11 @@ The following analyzers are expected. NUnit.Analyzers and not under asmdef.
 
 #### Unity 2020.3.4f1
 
-* Fix **SpecifiedReferences** problem (but no mentioned in release notes and issue tracker)
+* Fixed **SpecifiedReferences** problem (but no mentioned in release notes and issue tracker)
 
 #### Unity 2021.2.0f1
 
-* Fix **Test** problem (reason is unknown)
+* Fixed **Test** problem (reason is unknown)
 
 
 ### JetBrains Rider
@@ -96,16 +96,31 @@ For all patterns,
 * Analyzers under Assets folder and embedded packages are working (asmdef has no effect)
 * Analyzers under local packages and from Git URL (and maybe from UPM registry) are not work
 
+#### Rider Editor package v3.0.8 (RC)
+
+Fixed. However, required Unity 2020.3.6f1 or later or Unity 2021.1.2f1 or later.
+
 
 ### Visual Studio Code
 
-#### Visual Studio Code Editor package v1.2.3 (Unity 2020 verified)
+#### Visual Studio Code Editor package v1.2.3
 
-Same as Rider Editor package v3.0.6
+For all patterns,
+
+* Analyzers under Assets folder and embedded packages are working (asmdef has no effect)
+* Analyzers under local packages and from Git URL (and maybe from UPM registry) are not work
+
+#### Visual Studio Code Editor package v1.2.4
+
+Fixed. However, required Unity 2020.3.6f1 or later or Unity 2021.1.2f1 or later.
 
 
 ### Visual Studio
 
-#### Visual Studio Editor package v2.0.7 (Unity 2020 verified)
+#### Visual Studio Editor package v2.0.7
 
-TBD
+Only Microsoft.Unity.Analyzers.dll applies.
+
+#### Visual Studio Editor package v2.0.11
+
+Fixed. However, required Unity 2020.3.6f1 or later or Unity 2021.1.2f1 or later.
