@@ -99,13 +99,6 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
-    "nunit.analyzers.unity": {
-      "version": "3.2.0",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://package.openupm.com"
-    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,
