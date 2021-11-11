@@ -16,7 +16,7 @@ Analyzers warn when type name contains lowercase letters.
 * **AnalyzerInLocalPackageWithAsmdef** : Analyzer in local package, and under asmdef.
 * **AnalyzerInPackage** : [This analyzer](https://github.com/nowsprinting/analyzer-in-package) from Git URL.
 * **AnalyzerInPackageWithAsmdef** : [This analyzer](https://github.com/nowsprinting/analyzer-in-package) from Git URL, and under asmdef.
-* **NUnit.Analyzers** : [This analyzer](https://github.com/nowsprinting/nunit.analyzers.unity) from [OpenUPM](https://openupm.com)
+* **NUnit.Analyzers** : [This analyzer](https://github.com/nunit/nunit.analyzers) in Assets folder, and under asmdef.
 
 
 ### Analyzer target scripts
@@ -60,11 +60,11 @@ The following analyzers are expected. All analyzers in this project.
 Only specified "NUnit.Analyzers" by "Assembly Definition References" in asmdef.
 The following analyzers are expected. NUnit.Analyzers and not under asmdef.
 
-* NUnit.Analyzers
 * AnalyzerWithoutAsmdef
 * AnalyzerInEmbeddedPackage
 * AnalyzerInLocalPackage
 * AnalyzerInPackage
+* NUnit.Analyzers
 
 
 
