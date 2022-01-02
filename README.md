@@ -96,7 +96,7 @@ For all patterns,
 * Analyzers under Assets folder and embedded packages are working (asmdef has no effect)
 * Analyzers under local packages and from Git URL (and maybe from UPM registry) are not work
 
-#### v3.0.8 (RC)
+#### v3.0.9
 
 Fixed. However, required [Unity 2020.3.6f1](https://unity3d.com/unity/whats-new/2020.3.6) or later or [Unity 2021.1.2f1](https://unity3d.com/unity/whats-new/2021.1.2) or later.
 
