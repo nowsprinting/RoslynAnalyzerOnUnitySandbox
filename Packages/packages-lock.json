@@ -34,13 +34,13 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "https://github.com/van800/com.unity.ide.rider.git?path=/Packages/com.unity.ide.rider#3.0.8",
+      "version": "3.0.9",
       "depth": 0,
-      "source": "git",
+      "source": "registry",
       "dependencies": {
         "com.unity.ext.nunit": "1.0.6"
       },
-      "hash": "baf0d213092a133995cec89950983d122cbf7e2f"
+      "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
       "version": "2.0.7",
