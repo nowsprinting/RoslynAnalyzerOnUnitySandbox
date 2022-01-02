@@ -16,6 +16,7 @@ Analyzers warn when type name contains lowercase letters.
 * **AnalyzerInLocalPackageWithAsmdef** : Analyzer in local package, and under asmdef.
 * **AnalyzerInPackage** : [This analyzer](https://github.com/nowsprinting/analyzer-in-package) from Git URL.
 * **AnalyzerInPackageWithAsmdef** : [This analyzer](https://github.com/nowsprinting/analyzer-in-package) from Git URL, and under asmdef.
+* **NUnit.Analyzers** : [This analyzer](https://github.com/nunit/nunit.analyzers) in Assets folder, and under asmdef.
 
 
 ### Analyzer target scripts
@@ -54,41 +55,72 @@ The following analyzers are expected. All analyzers in this project.
 * AnalyzerInPackage
 * AnalyzerInPackageWithAsmdef
 
+#### Tests
+
+Only specified "NUnit.Analyzers" by "Assembly Definition References" in asmdef.
+The following analyzers are expected. NUnit.Analyzers and not under asmdef.
+
+* AnalyzerWithoutAsmdef
+* AnalyzerInEmbeddedPackage
+* AnalyzerInLocalPackage
+* AnalyzerInPackage
+* NUnit.Analyzers
+
 
 
 ## Results of a verification
 
 ### Unity
 
-#### Unity 2020.2.0f1
+#### [Unity 2020.2.0f1](https://unity3d.com/unity/whats-new/2020.2.0)
 
 * **NoAsmdef** and **NoReferences** are correct behaviour
 * In **SpecifiedReferences**, does not work analyzers under Packages and asmdef
+* In **Tests**, does not work NUnit.Analyzers (reason is unknown)
 
-#### Unity 2020.3.4f1
+#### [Unity 2020.3.4f1](https://unity3d.com/unity/whats-new/2020.3.4)
 
-* Fix **SpecifiedReferences** problem (but no mentioned in release notes and issue tracker)
+* Fixed **SpecifiedReferences** problem (but no mentioned in release notes and issue tracker)
+
+#### [Unity 2021.2.0f1](https://unity3d.com/unity/whats-new/2021.2.0)
+
+* Fixed **Tests** problem (reason is unknown)
 
 
-### JetBrains Rider
+### [JetBrains Rider Editor](https://docs.unity3d.com/Packages/com.unity.ide.rider@latest)
 
-#### Rider Editor package v3.0.7
+#### v3.0.7
 
 For all patterns,
 
 * Analyzers under Assets folder and embedded packages are working (asmdef has no effect)
 * Analyzers under local packages and from Git URL (and maybe from UPM registry) are not work
 
+#### v3.0.8 (RC)
 
-### Visual Studio Code
-
-#### Visual Studio Code Editor package v1.2.3 (Unity 2020 verified)
-
-Same as Rider Editor package v3.0.6
+Fixed. However, required [Unity 2020.3.6f1](https://unity3d.com/unity/whats-new/2020.3.6) or later or [Unity 2021.1.2f1](https://unity3d.com/unity/whats-new/2021.1.2) or later.
 
 
-### Visual Studio
+### [Code Editor Package for Visual Studio Code](https://docs.unity3d.com/Packages/com.unity.ide.vscode@latest)
 
-#### Visual Studio Editor package v2.0.7 (Unity 2020 verified)
+#### v1.2.3
 
-TBD
+For all patterns,
+
+* Analyzers under Assets folder and embedded packages are working (asmdef has no effect)
+* Analyzers under local packages and from Git URL (and maybe from UPM registry) are not work
+
+#### v1.2.4
+
+Fixed. However, required [Unity 2020.3.6f1](https://unity3d.com/unity/whats-new/2020.3.6) or later or [Unity 2021.1.2f1](https://unity3d.com/unity/whats-new/2021.1.2) or later.
+
+
+### [Code Editor Package for Visual Studio](https://docs.unity3d.com/Packages/com.unity.ide.visualstudio@latest)
+
+#### v2.0.7
+
+Only Microsoft.Unity.Analyzers.dll applies.
+
+#### v2.0.11
+
+Fixed. However, required [Unity 2020.3.6f1](https://unity3d.com/unity/whats-new/2020.3.6) or later or [Unity 2021.1.2f1](https://unity3d.com/unity/whats-new/2021.1.2) or later.
