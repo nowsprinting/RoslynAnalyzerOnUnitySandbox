@@ -12,6 +12,12 @@ namespace Tests
     {
         private const string AssemblyName = "Microsoft.CodeAnalysis.CSharp";
 
+#if UNITY_EDITOR_OSX
+        private const string RoslynPath = "Unity.app/Contents/Tools/Roslyn";
+#elif UNITY_EDITOR_LINUX
+        private const string RoslynPath = "Unity/Tools/Roslyn";
+#endif
+
 #if !UNITY_2021_2_OR_LATER
         private const string ExpectedVersion = "3.5.0.0";
 #else
@@ -33,7 +39,7 @@ namespace Tests
         public void MicrosoftCodeAnalysisCSharpVersion_matches()
         {
             var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            var path = Path.Combine(baseDirectory, $"Unity.app/Contents/Tools/Roslyn/{AssemblyName}.dll");
+            var path = Path.Combine(baseDirectory, RoslynPath, $"{AssemblyName}.dll");
             var assembly = Assembly.LoadFrom(path).GetName();
 
             Assert.That(assembly, Is.Not.Null);
