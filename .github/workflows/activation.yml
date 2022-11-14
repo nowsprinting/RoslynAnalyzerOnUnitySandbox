@@ -1,18 +1,16 @@
 name: Acquire activation file
 
 on:
-  workflow_dispatch: { }
+  workflow_dispatch:
+    inputs:
+      unityVersion:
+        description: 'Unity version'
+        required: true
 
 jobs:
   activation:
     name: Request manual activation file 🔑
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        unityVersion:
-          - 2020.3.14f1
-          - 2021.1.15f1
 
     steps:
       # Request manual activation file
@@ -20,11 +18,11 @@ jobs:
         id: getManualLicenseFile
         uses: game-ci/unity-request-activation-file@v2
         with:
-          unityVersion: ${{ matrix.unityVersion }}
+          unityVersion: ${{ github.event.inputs.unityVersion }}
 
       # Upload artifact (Unity_v20XX.X.XXXX.alf)
       - name: Expose as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.getManualLicenseFile.outputs.filePath }}
           path: ${{ steps.getManualLicenseFile.outputs.filePath }}
