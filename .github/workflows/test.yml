@@ -61,7 +61,7 @@ jobs:
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           unityVersion: ${{ matrix.unityVersion }}  # 通常は未指定（`auto`）でok
-          artifactsPath: Logs
+          checkName: test result (${{ matrix.unityVersion }})
           customParameters: -testCategory "!IgnoreCI"
         env:
           UNITY_LICENSE: ${{ secrets[steps.license.outputs.secret_key] }}
@@ -72,7 +72,8 @@ jobs:
         with:
           name: TestResults-Unity${{ matrix.unityVersion }}
           path: |
-            Logs
+            ${{ steps.test.outputs.artifactsPath }}
+            ${{ steps.test.outputs.coveragePath }}
         if: always()
 
   notify:
